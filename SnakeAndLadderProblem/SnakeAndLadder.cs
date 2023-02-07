@@ -46,8 +46,34 @@ namespace SnakeAndLadderProblem
                     Console.WriteLine("Player move behind by number of dice rolled " + position);
                     break;
             }
-
         }
-
+        //Created method for win condition of player
+        public static void PlayerWinCondition()
+        {
+            int position = 0;
+            Random random = new Random();
+            Random random1 = new Random();
+            while (position <= 100)
+            {
+                int diceRoll = random.Next(1, 7);
+                int option = random1.Next(1, 4);
+                switch (option)
+                {
+                    case 1:
+                        position = position + diceRoll;
+                        Console.WriteLine("Player move ahead by number of Dice rolled " + position);
+                        break;
+                    case 2:
+                        position = position - diceRoll;
+                        if (position < 0)
+                            position = 0;
+                        Console.WriteLine("Player move behind by number of Dice rolled " + position);
+                        break;
+                    case 3:
+                        Console.WriteLine("Player remain at same position " + position);
+                        break;
+                }
+            }
+        }
     }
 }
