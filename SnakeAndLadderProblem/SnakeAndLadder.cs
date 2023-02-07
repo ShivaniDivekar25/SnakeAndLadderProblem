@@ -47,13 +47,13 @@ namespace SnakeAndLadderProblem
                     break;
             }
         }
-        //Created method for win condition of player
+        //Created method for exact win condition of player
         public static void PlayerWinCondition()
         {
             int position = 0;
             Random random = new Random();
             Random random1 = new Random();
-            while (position <= 100)
+            while (position < 100)
             {
                 int diceRoll = random.Next(1, 7);
                 int option = random1.Next(1, 4);
@@ -61,6 +61,8 @@ namespace SnakeAndLadderProblem
                 {
                     case 1:
                         position = position + diceRoll;
+                        if (position > 100)
+                            position = 100;
                         Console.WriteLine("Player move ahead by number of Dice rolled " + position);
                         break;
                     case 2:
